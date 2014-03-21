@@ -6,7 +6,6 @@
 
 
 /* ALU */
-/* 10 Points */
 void ALU(unsigned A,unsigned B,char ALUControl,unsigned *ALUresult,char *Zero)
 {
 	//The follwoing ifs and elses peform an action depending on the control value. The binary values are commented for clarity 
@@ -50,7 +49,6 @@ void ALU(unsigned A,unsigned B,char ALUControl,unsigned *ALUresult,char *Zero)
 }
 
 /* instruction fetch */
-/* 10 Points */
 int instruction_fetch(unsigned PC,unsigned *Mem,unsigned *instruction)
 {
 	if(PC % 4 !=0){
@@ -69,7 +67,6 @@ int instruction_fetch(unsigned PC,unsigned *Mem,unsigned *instruction)
 
 
 /* instruction partition */
-/* 10 Points */
 void instruction_partition(unsigned instruction, unsigned *op, unsigned *r1,unsigned *r2, unsigned *r3, unsigned *funct, unsigned *offset, unsigned *jsec)
 {
 
@@ -113,7 +110,6 @@ void instruction_partition(unsigned instruction, unsigned *op, unsigned *r1,unsi
 
 
 /* instruction decode */
-/* 15 Points */
 int instruction_decode(unsigned op,struct_controls *controls)
 {
 	//the op value is used to determine the operation. Each operation has a specific number that defines it
@@ -245,7 +241,6 @@ int instruction_decode(unsigned op,struct_controls *controls)
 }
 
 /* Read Register */
-/* 5 Points */
 void read_register(unsigned r1,unsigned r2,unsigned *Reg,unsigned *data1,unsigned *data2)
 {
 	r1 = Reg[r1];
@@ -259,7 +254,6 @@ void read_register(unsigned r1,unsigned r2,unsigned *Reg,unsigned *data1,unsigne
 
 
 /* Sign Extend */
-/* 10 Points */
 void sign_extend(unsigned offset,unsigned *extended_value)
 {
 	unsigned maskForSign = 4294901760;
@@ -279,7 +273,6 @@ void sign_extend(unsigned offset,unsigned *extended_value)
 }
 
 /* ALU operations */
-/* 10 Points */
 int ALU_operations(unsigned data1,unsigned data2,unsigned extended_value,unsigned funct,char ALUOp,char ALUSrc,unsigned *ALUresult,char *Zero)
 {
 	//This will find the specific r-type operations based on the 'function' parameter of each instruction
@@ -352,7 +345,6 @@ int ALU_operations(unsigned data1,unsigned data2,unsigned extended_value,unsigne
 }
 
 /* Read / Write Memory */
-/* 10 Points */
 int rw_memory(unsigned ALUresult,unsigned data2,char MemWrite,char MemRead,unsigned *memdata,unsigned *Mem)
 {
 	//Simply assigns a value to the memory array is MemWrite is asserted, and loads a value from the array
@@ -371,7 +363,6 @@ int rw_memory(unsigned ALUresult,unsigned data2,char MemWrite,char MemRead,unsig
 
 
 /* Write Register */
-/* 10 Points */
 void write_register(unsigned r2,unsigned r3,unsigned memdata,unsigned ALUresult,char RegWrite,char RegDst,char MemtoReg,unsigned *Reg)
 {
 	//Writers to registers based on control values. r3 and r2 are used as "addresses" to direct data to the proper register
@@ -402,7 +393,6 @@ void write_register(unsigned r2,unsigned r3,unsigned memdata,unsigned ALUresult,
 }
 
 /* PC update */
-/* 10 Points */
 void PC_update(unsigned jsec,unsigned extended_value,char Branch,char Jump,char Zero,unsigned *PC)
 {
 		*PC += 4;
