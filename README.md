@@ -1,2 +1,2 @@
-This program simulates a MIPS processor by reading an assembly code file and performing the instructions. 
+Simulates a 32-bit MIPS processor in C. It reads an assembly code file and performs the listed MIPS instructions. 
 "instructionFunctions.c" defines the ALU operations. "spimcore.c" simulates the datapath.
